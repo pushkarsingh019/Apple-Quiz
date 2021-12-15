@@ -82,14 +82,26 @@ function checkScore(score){
   }
 }
 
-// output
-
-for (var i = 0; i < quizQuestions.length; i++){
+function gamePlay(){
+  for (var i = 0; i < quizQuestions.length; i++){
   nowQuestion = quizQuestions[i].question;
   nowAnswer = quizQuestions[i].answer;
 
   play(nowQuestion, nowAnswer)
 }
 
+userChoice = readlineSync.question("Press 1 ro play again and 0 to end the game")
+
+while(userChoice == "1"){
+  score = 0
+  console.clear()
+  gamePlay()
+}
+}
+
+// output
+
+gamePlay()
+console.clear()
 console.log("Here is your final score ", score)
 checkScore(score)
